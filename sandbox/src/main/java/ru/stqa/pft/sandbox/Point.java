@@ -9,8 +9,7 @@ public class Point {
     p1.y = 6;
     p2.x = 2;
     p2.y = 1;
-    System.out.println("Расстоя" +
-            "ние между двумя точками = " + distance(p1, p2));
+    System.out.println("Расстояние между двумя точками = " + distance(p1, p2));
 
   }
 
