@@ -21,6 +21,6 @@ public class NewPoint {
   }
 
   public double distance(NewPoint p) {
-    return Math.sqrt(Math.abs((this.x - p.x) * 2 + (this.y - p.y) * 2));
+    return Math.sqrt(Math.abs(Math.pow(p.x - this.x, 2) + Math.pow(p.y - this.y, 2)));
   }
 }
