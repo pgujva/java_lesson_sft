@@ -3,8 +3,8 @@ package ru.stqa.pft.sandbox;
 public class NewPoint {
   public static void main(String[] args) {
 
-    NewPoint p1 = new NewPoint(10.0, 6.0);
-    NewPoint p2 = new NewPoint(2.0, 1.0);
+    NewPoint p1 = new NewPoint(-3.0, -5.0);
+    NewPoint p2 = new NewPoint(-1.0, -5.0);
 
 
     System.out.println("Расстояние между двумя точками = " + p1.distance(p2));

@@ -15,3 +15,4 @@ gradle-app.setting
 .idea/workspace.xml
 sh.exe.stackdump
 sandbox/src/main/java/ru/stqa/pft/sandbox/Point.java
+sandbox/src/main/java/ru/stqa/pft/sandbox/NewPoint.java
