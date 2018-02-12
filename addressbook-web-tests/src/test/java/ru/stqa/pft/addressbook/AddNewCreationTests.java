@@ -4,16 +4,11 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
-import static org.testng.Assert.*;
 
 import java.util.concurrent.TimeUnit;
-import java.util.Date;
-import java.io.File;
-import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.interactions.Actions;
+
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.*;
-import static org.openqa.selenium.OutputType.*;
 
 public class AddNewCreationTests {
     FirefoxDriver wd;
@@ -22,33 +17,59 @@ public class AddNewCreationTests {
     public void setUp() throws Exception {
         wd = new FirefoxDriver(new FirefoxOptions().setLegacy(true));
         wd.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+        login("admin", "secret");
     }
-    
-    @Test
-    public void TestAddNewCreationTests() {
+
+    private void login(String username, String password) {
         wd.get("http://localhost/addressbook/");
         wd.findElement(By.name("user")).click();
         wd.findElement(By.name("user")).clear();
-        wd.findElement(By.name("user")).sendKeys("admin");
+        wd.findElement(By.name("user")).sendKeys(username);
         wd.findElement(By.name("pass")).click();
         wd.findElement(By.name("pass")).clear();
-        wd.findElement(By.name("pass")).sendKeys("secret");
+        wd.findElement(By.name("pass")).sendKeys(password);
         wd.findElement(By.xpath("//form[@id='LoginForm']/input[3]")).click();
-        wd.findElement(By.linkText("add new")).click();
-        wd.findElement(By.name("firstname")).click();
-        wd.findElement(By.name("firstname")).sendKeys("TestFirstName");
-        wd.findElement(By.name("lastname")).click();
-        wd.findElement(By.name("lastname")).sendKeys("TestLastName");
-        wd.findElement(By.name("address")).click();
-        wd.findElement(By.name("address")).sendKeys("TestAddress");
-        wd.findElement(By.name("email")).click();
-        wd.findElement(By.name("email")).sendKeys("Test@mail.ru");
-        wd.findElement(By.name("mobile")).click();
-        wd.findElement(By.name("mobile")).sendKeys("89040000000");
-        wd.findElement(By.xpath("//div[@id='content']/form/input[21]")).click();
+    }
+
+    @Test
+    public void TestAddNewCreationTests() {
+
+        initAddNewContactCreation();
+        fillAddContactForm(new ContactData("TestFirstName", "TestLastName", "TestAddress", "Test@mail.ru", "89040000000"));
+        submitAddContact();
+        returnToHomePage();
+    }
+
+    private void returnToHomePage() {
         wd.findElement(By.linkText("home page")).click();
     }
-    
+
+    private void submitAddContact() {
+        wd.findElement(By.xpath("//div[@id='content']/form/input[21]")).click();
+    }
+
+    private void fillAddContactForm(ContactData contactData) {
+        wd.findElement(By.name("firstname")).click();
+        wd.findElement(By.name("firstname")).clear();
+        wd.findElement(By.name("firstname")).sendKeys(contactData.getFirstname());
+        wd.findElement(By.name("lastname")).click();
+        wd.findElement(By.name("lastname")).clear();
+        wd.findElement(By.name("lastname")).sendKeys(contactData.getLastname());
+        wd.findElement(By.name("address")).click();
+        wd.findElement(By.name("address")).clear();
+        wd.findElement(By.name("address")).sendKeys(contactData.getAddress());
+        wd.findElement(By.name("email")).click();
+        wd.findElement(By.name("email")).clear();
+        wd.findElement(By.name("email")).sendKeys(contactData.getEmail());
+        wd.findElement(By.name("mobile")).click();
+        wd.findElement(By.name("mobile")).clear();
+        wd.findElement(By.name("mobile")).sendKeys(contactData.getMobile());
+    }
+
+    private void initAddNewContactCreation() {
+        wd.findElement(By.linkText("add new")).click();
+    }
+
     @AfterMethod
     public void tearDown() {
         wd.quit();
