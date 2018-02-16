@@ -1,0 +1,19 @@
+package ru.stqa.pft.addressbook.tests;
+
+import org.testng.annotations.Test;
+import ru.stqa.pft.addressbook.model.ContactData;
+
+public class AddNewCreationTests extends TestBase {
+
+
+  @Test
+  public void TestAddNewCreationTests() {
+
+    app.getContactHelper().initAddNewContactCreation();
+    app.getContactHelper().fillAddContactForm(new ContactData("TestFirstName", "TestLastName", "TestAddress", "Test@mail.ru", "89040000000"));
+    app.getContactHelper().submitAddContact();
+    app.getContactHelper().returnToHomePage();
+  }
+
+
+}
