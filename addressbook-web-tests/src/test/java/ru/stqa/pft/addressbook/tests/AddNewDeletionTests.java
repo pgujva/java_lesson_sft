@@ -6,5 +6,7 @@ public class AddNewDeletionTests extends TestBase{
   @Test
   public void testAddNewDeletion(){
     app.getContactHelper().initAddNewDeletion();
+    app.getContactHelper().submitAddNewDeletion();
+
   }
 }
