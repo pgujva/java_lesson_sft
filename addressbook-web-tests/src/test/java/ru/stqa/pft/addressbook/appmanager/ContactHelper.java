@@ -57,11 +57,22 @@ public class ContactHelper extends HelperBase {
 
   public void initAddNewDeletion() {
     List<WebElement> contacts = wd.findElements(By.cssSelector("input[name='selected[]']"));
-    contacts.get(1).click();
+    contacts.get(0).click();
     click(By.xpath("//div[@id='content']/form[2]/div[2]/input"));
   }
 
   public void submitAddNewDeletion() {
     wd.switchTo().alert().accept();
+  }
+
+  public void createContact(ContactData contact, boolean b) {
+    initAddNewContactCreation();
+    fillAddContactForm(contact,true);
+    submitAddContact();
+    returnToHomePage();
+  }
+
+  public boolean isThereAContact() {
+    return isElementPresent(By.cssSelector("input[name='selected[]']"));
   }
 }
