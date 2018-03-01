@@ -7,6 +7,7 @@ public class AddNewModificationTests extends TestBase {
 
   @Test
   public void testAddNewModification (){
+    app.getNavigationHelper().goToHomepage();
     if (!app.getContactHelper().isThereAContact()) {
       app.getContactHelper().createContact(new ContactData("TestFirstName", "TestLastName", "TestAddress", "Test@mail.ru", "89040000011", "test1"), true);
     }
