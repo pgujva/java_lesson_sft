@@ -2,10 +2,15 @@ package ru.stqa.pft.addressbook.appmanager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import ru.stqa.pft.addressbook.model.GroupData;
 
-public class GroupHelper extends HelperBase{
+import java.security.acl.Group;
+import java.util.ArrayList;
+import java.util.List;
+
+public class GroupHelper extends HelperBase {
 
   public GroupHelper(WebDriver wd) {
     super(wd);
@@ -34,8 +39,8 @@ public class GroupHelper extends HelperBase{
     click(By.name("delete"));
   }
 
-  public void selectGroup() {
-    click(By.name("selected[]"));
+  public void selectGroup(int index) {
+    wd.findElements(By.name("selected[]")).get(index).click();
   }
 
   public void initGroupModification() {
@@ -47,10 +52,10 @@ public class GroupHelper extends HelperBase{
   }
 
   public void createGroup(GroupData group) {
-   initGroupCreation();
-   fillGroupForm(group);
-   submitGroupCreation();
-   returnToGroupPage();
+    initGroupCreation();
+    fillGroupForm(group);
+    submitGroupCreation();
+    returnToGroupPage();
 
   }
 
@@ -60,5 +65,16 @@ public class GroupHelper extends HelperBase{
 
   public int getGroupCount() {
     return wd.findElements(By.name("selected[]")).size();
+  }
+
+  public List<GroupData> getGroupList() {
+    List<GroupData> groups = new ArrayList<GroupData>();
+    List<WebElement> elements = wd.findElements(By.cssSelector("span.group"));
+    for (WebElement element : elements) {
+      String name = element.getText();
+      GroupData group = new GroupData(name, null, null);
+      groups.add(group);
+    }
+    return groups;
   }
 }
