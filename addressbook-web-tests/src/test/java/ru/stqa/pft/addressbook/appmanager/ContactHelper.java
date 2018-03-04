@@ -75,4 +75,10 @@ public class ContactHelper extends HelperBase {
   public boolean isThereAContact() {
     return isElementPresent(By.cssSelector("input[name='selected[]']"));
   }
+
+  public int getContactCount() {
+    int n= wd.findElements(By.name("selected[]")).size();
+    System.out.println(n);
+    return wd.findElements(By.name("selected[]")).size();
+  }
 }
