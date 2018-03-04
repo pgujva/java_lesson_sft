@@ -12,7 +12,7 @@ public class AddNewDeletionTests extends TestBase {
     if (! app.getContactHelper().isThereAContact()) {
       app.getContactHelper().createContact(new ContactData("TestFirstName", "TestLastName", "TestAddress", "Test@mail.ru", "89040000011", "test1"), true);
     }
-    app.getContactHelper().initAddNewDeletion();
+    app.getContactHelper().initAddNewDeletion(before - 1);
     app.getContactHelper().submitAddNewDeletion();
     app.getNavigationHelper().goToHomepage();
     int after = app.getContactHelper().getContactCount();

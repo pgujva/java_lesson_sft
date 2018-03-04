@@ -22,7 +22,7 @@ public class ContactHelper extends HelperBase {
   }
 
 
-  public void fillAddContactForm(ContactData contactData, boolean creation ) {
+  public void fillAddContactForm(ContactData contactData, boolean creation) {
     type(By.name("firstname"), contactData.getFirstname());
     type(By.name("lastname"), contactData.getLastname());
     type(By.name("address"), contactData.getAddress());
@@ -30,7 +30,7 @@ public class ContactHelper extends HelperBase {
     type(By.name("mobile"), contactData.getMobile());
 
 
-    if(creation) {
+    if (creation) {
       new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
     } else {
       Assert.assertFalse(isElementPresent(By.name("new_group")));
@@ -46,8 +46,8 @@ public class ContactHelper extends HelperBase {
   }
 
 
-  public void initAddNewModification() {
-    click(By.xpath("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img"));
+  public void initAddNewModification(int index) {
+    wd.findElements(By.cssSelector("[title='Edit']")).get(index).click();
   }
 
   public void submitAddNewModification() {
@@ -55,9 +55,8 @@ public class ContactHelper extends HelperBase {
   }
 
 
-  public void initAddNewDeletion() {
-    List<WebElement> contacts = wd.findElements(By.cssSelector("input[name='selected[]']"));
-    contacts.get(0).click();
+  public void initAddNewDeletion(int index) {
+    wd.findElements(By.name("selected[]")).get(index).click();
     click(By.xpath("//div[@id='content']/form[2]/div[2]/input"));
   }
 
@@ -67,7 +66,7 @@ public class ContactHelper extends HelperBase {
 
   public void createContact(ContactData contact, boolean b) {
     initAddNewContactCreation();
-    fillAddContactForm(contact,true);
+    fillAddContactForm(contact, true);
     submitAddContact();
     returnToHomePage();
   }
@@ -77,8 +76,10 @@ public class ContactHelper extends HelperBase {
   }
 
   public int getContactCount() {
-    int n= wd.findElements(By.name("selected[]")).size();
+    int n = wd.findElements(By.name("selected[]")).size();
     System.out.println(n);
     return wd.findElements(By.name("selected[]")).size();
   }
+
+
 }
