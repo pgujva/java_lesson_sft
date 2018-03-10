@@ -45,6 +45,10 @@ public class GroupHelper extends HelperBase {
     wd.findElements(By.name("selected[]")).get(index).click();
   }
 
+  public void selectGroupByid(int id) {
+    wd.findElement(By.cssSelector("input[value='" + id + "']")).click();
+  }
+
   public void initGroupModification() {
     click(By.name("edit"));
   }
@@ -63,6 +67,12 @@ public class GroupHelper extends HelperBase {
 
   public void delete(int index) {
     selectGroup(index);
+    deleteSelectedGroups();
+    returnToGroupPage();
+  }
+
+  public void delete(GroupData group) {
+    selectGroupByid(group.getId());
     deleteSelectedGroups();
     returnToGroupPage();
   }
@@ -104,4 +114,6 @@ public class GroupHelper extends HelperBase {
     }
     return groups;
   }
+
+
 }
