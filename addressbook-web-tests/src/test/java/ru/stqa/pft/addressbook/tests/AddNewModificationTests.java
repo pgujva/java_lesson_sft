@@ -6,13 +6,12 @@ import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.ContactData;
 
 import java.util.Comparator;
-import java.util.HashSet;
 import java.util.List;
 
 public class AddNewModificationTests extends TestBase {
 
   @BeforeMethod void ensurePreconditions() {
-    app.getNavigationHelper().goToHomepage();
+    app.goTo().goToHomepage();
     if (!app.getContactHelper().isThereAContact()) {
       app.getContactHelper().createContact(new ContactData("TestFirstName", "TestLastName", "TestAddress", "Test@mail.ru", "89040000011", "test1"), true);
     }
