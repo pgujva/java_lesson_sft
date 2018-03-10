@@ -12,7 +12,8 @@ public class AddNewDeletionTests extends TestBase {
   void ensurePreconditions() {
     app.goTo().homePage();
     if (app.contact().list().size()== 0) {
-      app.contact().create(new ContactData("TestFirstName", "TestLastName", "TestAddress", "Test@mail.ru", "89040000011", "test1"), true);
+      app.contact().create(new ContactData()
+              .withFirstname("TestFirstName").withLastname("TestLastName").withAddress("TestAddress").withEmail("Test@mail.ru").withMobile("89040000011").withGroup("test1"), true);
     }
   }
 
