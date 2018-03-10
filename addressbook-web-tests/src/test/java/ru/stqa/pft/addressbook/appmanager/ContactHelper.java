@@ -89,11 +89,7 @@ public class ContactHelper extends HelperBase {
     returnToHomePage();
   }
 
-  public void delete(int index) {
-    initAddNewDeletion(index);
-    submitAddNewDeletion();
-    returnToHomePage();
-  }
+
   public void delete(ContactData contact) {
     initAddNewDeletionById(contact.getId());
     submitAddNewDeletion();
@@ -110,17 +106,6 @@ public class ContactHelper extends HelperBase {
   }
 
 
-  public List<ContactData> list() {
-    List<ContactData> contacts = new ArrayList<ContactData>();
-    List<WebElement> elements = wd.findElements(By.name("entry"));
-    for (WebElement element : elements) {
-      String lastname = element.findElements(By.tagName("td")).get(1).getText();
-      String firstname = element.findElements(By.tagName("td")).get(2).getText();
-      int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
-      contacts.add(new ContactData().withId(id).withFirstname(firstname).withLastname(lastname));
-    }
-    return contacts;
-  }
 
   public Set<ContactData> all() {
     Set<ContactData> contacts = new HashSet<ContactData>();
