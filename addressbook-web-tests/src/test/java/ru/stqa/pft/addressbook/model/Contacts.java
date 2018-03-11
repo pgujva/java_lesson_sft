@@ -1,6 +1,7 @@
 package ru.stqa.pft.addressbook.model;
 
 import com.google.common.collect.ForwardingSet;
+import ru.stqa.pft.addressbook.model.ContactData;
 
 import java.util.HashSet;
 import java.util.Set;
