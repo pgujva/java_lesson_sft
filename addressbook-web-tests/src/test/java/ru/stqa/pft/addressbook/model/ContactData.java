@@ -7,8 +7,12 @@ public class ContactData {
   private  String firstname;
   private  String lastname;
   private  String address;
-  private  String email;
+  private  String home;
   private  String mobile;
+  private  String work;
+  private  String email;
+  private  String email2;
+  private  String email3;
   private  String group;
 
   public ContactData withFirstname(String firstname) {
@@ -26,14 +30,56 @@ public class ContactData {
     return this;
   }
 
-  public ContactData withEmail(String email) {
-    this.email = email;
+  public ContactData withHome (String home){
+    this.home = home;
     return this;
   }
 
   public ContactData withMobile(String mobile) {
     this.mobile = mobile;
     return this;
+  }
+
+  public ContactData withWork (String work){
+    this.work = work;
+    return this;
+  }
+
+  public ContactData withEmail(String email) {
+    this.email = email;
+    return this;
+  }
+
+  public ContactData withEmail2(String email2) {
+    this.email2 = email2;
+    return this;
+  }
+
+  public ContactData withEmail3(String email3) {
+    this.email3 = email3;
+    return this;
+  }
+
+  public ContactData withGroup(String group) {
+
+    this.group = group;
+    return this;
+  }
+
+  public ContactData withId(int id) {
+    this.id = id;
+    return this;
+  }
+
+
+
+  @Override
+  public String toString() {
+    return "ContactData{" +
+            "id='" + id + '\'' +
+            ", firstname='" + firstname + '\'' +
+            ", lastname='" + lastname + '\'' +
+            '}';
   }
 
   @Override
@@ -56,32 +102,12 @@ public class ContactData {
     return result;
   }
 
-  public ContactData withGroup(String group) {
-
-    this.group = group;
-    return this;
-  }
-
-  public ContactData withId(int id) {
-    this.id = id;
-    return this;
+  public int getId() {
+    return id;
   }
 
   public String getFirstname() {
     return firstname;
-  }
-
-  @Override
-  public String toString() {
-    return "ContactData{" +
-            "id='" + id + '\'' +
-            ", firstname='" + firstname + '\'' +
-            ", lastname='" + lastname + '\'' +
-            '}';
-  }
-
-  public int getId() {
-    return id;
   }
 
   public String getLastname() {
@@ -104,4 +130,19 @@ public class ContactData {
     return group;
   }
 
+  public String getHome() {
+    return home;
+  }
+
+  public String getWork() {
+    return work;
+  }
+
+  public String getEmail2() {
+    return email2;
+  }
+
+  public String getEmail3() {
+    return email3;
+  }
 }
