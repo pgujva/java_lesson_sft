@@ -121,12 +121,12 @@ public class ContactHelper extends HelperBase {
       String lastname = element.findElements(By.tagName("td")).get(1).getText();
       String firstname = element.findElements(By.tagName("td")).get(2).getText();
       String address = element.findElements(By.tagName("td")).get(3).getText();
-      String allemail = element.findElements(By.tagName("td")).get(4).getText();
-      String allphones = element.findElements(By.tagName("td")).get(5).getText();
-      String[] phones = allphones.split("\n");
-      String[] emails = allemail.split("\n");
-      contactCache.add(new ContactData().withId(id).withFirstname(firstname).withLastname(lastname).withAddress(address).withHome(phones[0]).withMobile(phones[1])
-      .withWork(phones[2]).withEmail(emails[0]).withEmail2(emails[1]).withEmail3(emails[2]).withAddress(address));
+      String allEmails = element.findElements(By.tagName("td")).get(4).getText();
+      String allPhones = element.findElements(By.tagName("td")).get(5).getText();
+     // String[] phones = allphones.split("\n");
+      //String[] emails = allemail.split("\n");
+      contactCache.add(new ContactData().withId(id).withFirstname(firstname).withLastname(lastname)
+              .withAddress(address).withAllPhones(allPhones).withAllEmails(allEmails));
     }
     return new Contacts(contactCache);
   }
