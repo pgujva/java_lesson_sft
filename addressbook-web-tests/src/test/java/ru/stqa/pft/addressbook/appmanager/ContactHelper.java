@@ -117,10 +117,16 @@ public class ContactHelper extends HelperBase {
     contactCache = new Contacts();
     List<WebElement> elements = wd.findElements(By.name("entry"));
     for (WebElement element : elements) {
+      int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
       String lastname = element.findElements(By.tagName("td")).get(1).getText();
       String firstname = element.findElements(By.tagName("td")).get(2).getText();
-      int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
-      contactCache.add(new ContactData().withId(id).withFirstname(firstname).withLastname(lastname));
+      String address = element.findElements(By.tagName("td")).get(3).getText();
+      String allemail = element.findElements(By.tagName("td")).get(4).getText();
+      String allphones = element.findElements(By.tagName("td")).get(5).getText();
+      String[] phones = allphones.split("\n");
+      String[] emails = allemail.split("\n");
+      contactCache.add(new ContactData().withId(id).withFirstname(firstname).withLastname(lastname).withAddress(address).withHome(phones[0]).withMobile(phones[1])
+      .withWork(phones[2]).withEmail(emails[0]).withEmail2(emails[1]).withEmail3(emails[2]).withAddress(address));
     }
     return new Contacts(contactCache);
   }
@@ -135,7 +141,7 @@ public class ContactHelper extends HelperBase {
     String work = wd.findElement(By.name("work")).getAttribute("value");
     String email = wd.findElement(By.name("email")).getAttribute("value");
     String email2 = wd.findElement(By.name("email2")).getAttribute("value");
-    String email3 = wd.findElement(By.name("email2")).getAttribute("value");
+    String email3 = wd.findElement(By.name("email3")).getAttribute("value");
     wd.navigate().back();
     return new ContactData().withId(contact.getId()).withFirstname(firstname).withLastname(lastname).withAddress(address)
            .withHome(home).withMobile(mobile).withWork(work).withEmail(email).withEmail2(email2).withEmail3(email3);
