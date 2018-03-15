@@ -10,7 +10,7 @@ import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.testng.Assert.assertEquals;
 
-public class AddNewDeletionTests extends TestBase {
+public class ContactDeletionTests extends TestBase {
   @BeforeMethod
   void ensurePreconditions() {
     app.goTo().homePage();
@@ -21,7 +21,7 @@ public class AddNewDeletionTests extends TestBase {
   }
 
   @Test
-  public void testAddNewDeletion() {
+  public void ContactAddNewDeletion() {
     Contacts before = app.contact().all();
     ContactData deletedContact = before.iterator().next();
     app.contact().delete(deletedContact);

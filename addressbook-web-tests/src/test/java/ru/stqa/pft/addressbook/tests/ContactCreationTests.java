@@ -12,11 +12,11 @@ import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 
-public class AddNewCreationTests extends TestBase {
+public class ContactCreationTests extends TestBase {
 
 
   @Test
-  public void TestAddNewCreationTests() {
+  public void TestContactCreationTests() {
     app.goTo();
     Contacts before = app.contact().all();
     ContactData contact = new ContactData()

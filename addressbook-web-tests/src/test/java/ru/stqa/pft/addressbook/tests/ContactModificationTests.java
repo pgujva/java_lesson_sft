@@ -10,7 +10,7 @@ import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.testng.Assert.assertEquals;
 
-public class AddNewModificationTests extends TestBase {
+public class ContactModificationTests extends TestBase {
 
   @BeforeMethod
   void ensurePreconditions() {
@@ -22,7 +22,7 @@ public class AddNewModificationTests extends TestBase {
   }
 
   @Test
-  public void testAddNewModification() {
+  public void testContactModification() {
     Contacts before = app.contact().all();
     ContactData modifiedContact = before.iterator().next();
     ContactData contact = new ContactData()
