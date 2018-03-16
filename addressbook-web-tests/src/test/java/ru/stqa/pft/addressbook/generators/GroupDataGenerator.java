@@ -23,7 +23,7 @@ public class GroupDataGenerator {
   private static void save(List<GroupData> groups, File file) throws IOException {
     Writer writer = new FileWriter(file);
     for (GroupData group : groups) {
-      writer.write(String.format("%s;%s;%s\n",group.getName(),group.getHeader(),group.getFooter()));
+      writer.write(String.format("%s;%s;%s\n", group.getName(), group.getHeader(), group.getFooter()));
     }
     writer.close();
   }
