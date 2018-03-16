@@ -6,6 +6,10 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+import java.io.File;
+
+import static java.awt.SystemColor.text;
+
 public class HelperBase {
   public WebDriver wd;
 
@@ -27,6 +31,13 @@ public class HelperBase {
       }
     }
   }
+
+  protected void attach(By locator, File file) {
+    if (text != null) {
+       wd.findElement(locator).sendKeys(file.getAbsolutePath());
+      }
+    }
+
   public boolean isAlertPresent() {
     try {
       wd.switchTo().alert();
