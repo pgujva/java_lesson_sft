@@ -3,15 +3,18 @@
     <firstname>TestLastName 0</firstname>
     <lastname>TestFirstName 0</lastname>
     <address>TestAddress 0</address>
+    <group>test 0</group>
   </contact>
   <contact>
     <firstname>TestLastName 1</firstname>
     <lastname>TestFirstName 1</lastname>
     <address>TestAddress 1</address>
+    <group>test 1</group>
   </contact>
   <contact>
     <firstname>TestLastName 2</firstname>
     <lastname>TestFirstName 2</lastname>
     <address>TestAddress 2</address>
+    <group>test 2</group>
   </contact>
 </list>
