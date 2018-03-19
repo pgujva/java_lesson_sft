@@ -17,3 +17,4 @@ sh.exe.stackdump
 sandbox/src/main/java/ru/stqa/pft/sandbox/Point.java
 sandbox/src/main/java/ru/stqa/pft/sandbox/NewPoint.java
 addressbook-web-tests/out/test/classes/ru/stqa/pft/addressbook/appmanager/ApplicationManager.class
+*.log
