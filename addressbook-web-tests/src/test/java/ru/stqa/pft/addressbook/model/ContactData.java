@@ -16,48 +16,78 @@ public class ContactData {
   @Id
   @Column(name = "id")
   @XStreamOmitField
-  private  int id=Integer.MAX_VALUE;
+  private int id = Integer.MAX_VALUE;
 
   @Expose
   @Column(name = "firstname")
-  private  String firstname;
+  private String firstname;
 
   @Expose
   @Column(name = "lastname")
-  private  String lastname;
+  private String lastname;
 
   @Expose
   @Column(name = "address")
   @Type(type = "text")
-  private  String address;
+  private String address;
 
   @Column(name = "home")
   @Type(type = "text")
-  private  String home;
+  private String home;
 
   @Column(name = "mobile")
   @Type(type = "text")
-  private  String mobile;
+  private String mobile;
 
   @Column(name = "work")
   @Type(type = "text")
-  private  String work;
+  private String work;
 
   @Column(name = "email")
   @Type(type = "text")
-  private  String email;
+  private String email;
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+
+    ContactData that = (ContactData) o;
+
+    if (id != that.id) return false;
+    if (firstname != null ? !firstname.equals(that.firstname) : that.firstname != null) return false;
+    return lastname != null ? lastname.equals(that.lastname) : that.lastname == null;
+  }
+
+  @Override
+  public int hashCode() {
+    int result = id;
+    result = 31 * result + (firstname != null ? firstname.hashCode() : 0);
+    result = 31 * result + (lastname != null ? lastname.hashCode() : 0);
+    return result;
+  }
+
+  @Override
+  public String toString() {
+    return "ContactData{" +
+            "id=" + id +
+            ", firstname='" + firstname + '\'' +
+            ", lastname='" + lastname + '\'' +
+            '}';
+  }
 
   @Column(name = "email2")
   @Type(type = "text")
-  private  String email2;
+  private String email2;
 
   @Column(name = "email3")
   @Type(type = "text")
-  private  String email3;
+
+  private String email3;
 
   @Expose
   @Transient
-  private  String group;
+  private String group;
 
   @Transient
   private String allPhones;
@@ -66,11 +96,12 @@ public class ContactData {
   private String allEmails;
 
   @Column(name = "photo")
+
   @Type(type = "text")
   private String photo;
 
   public File getPhoto() {
-    return new File (photo);
+    return new File(photo);
   }
 
   public ContactData withPhoto(File photo) {
@@ -98,7 +129,6 @@ public class ContactData {
   }
 
 
-
   public ContactData withFirstname(String firstname) {
     this.firstname = firstname;
     return this;
@@ -114,7 +144,7 @@ public class ContactData {
     return this;
   }
 
-  public ContactData withHome (String home){
+  public ContactData withHome(String home) {
     this.home = home;
     return this;
   }
@@ -124,7 +154,7 @@ public class ContactData {
     return this;
   }
 
-  public ContactData withWork (String work){
+  public ContactData withWork(String work) {
     this.work = work;
     return this;
   }
@@ -155,36 +185,6 @@ public class ContactData {
     return this;
   }
 
-
-
-  @Override
-  public String toString() {
-    return "ContactData{" +
-            "id='" + id + '\'' +
-            ", firstname='" + firstname + '\'' +
-            ", lastname='" + lastname + '\'' +
-            '}';
-  }
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-
-    ContactData that = (ContactData) o;
-
-    if (id != that.id) return false;
-    if (firstname != null ? !firstname.equals(that.firstname) : that.firstname != null) return false;
-    return lastname != null ? lastname.equals(that.lastname) : that.lastname == null;
-  }
-
-  @Override
-  public int hashCode() {
-    int result = id;
-    result = 31 * result + (firstname != null ? firstname.hashCode() : 0);
-    result = 31 * result + (lastname != null ? lastname.hashCode() : 0);
-    return result;
-  }
 
   public int getId() {
     return id;
