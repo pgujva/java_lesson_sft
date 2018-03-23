@@ -47,6 +47,29 @@ public class ContactData {
   @Type(type = "text")
   private String email;
 
+  @Column(name = "email2")
+  @Type(type = "text")
+  private String email2;
+
+  @Column(name = "email3")
+  @Type(type = "text")
+  private String email3;
+
+  @Expose
+  @Transient
+  private String group;
+
+  @Transient
+  private String allPhones;
+
+  @Transient
+  private String allEmails;
+
+  @Transient
+  @Column(name = "photo")
+  @Type(type = "text")
+  private String photo;
+
   @Override
   public boolean equals(Object o) {
     if (this == o) return true;
@@ -76,29 +99,7 @@ public class ContactData {
             '}';
   }
 
-  @Column(name = "email2")
-  @Type(type = "text")
-  private String email2;
 
-  @Column(name = "email3")
-  @Type(type = "text")
-
-  private String email3;
-
-  @Expose
-  @Transient
-  private String group;
-
-  @Transient
-  private String allPhones;
-
-  @Transient
-  private String allEmails;
-
-  @Column(name = "photo")
-
-  @Type(type = "text")
-  private String photo;
 
   public File getPhoto() {
     return new File(photo);

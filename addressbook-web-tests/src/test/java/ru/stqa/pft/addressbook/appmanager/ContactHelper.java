@@ -31,14 +31,14 @@ public class ContactHelper extends HelperBase {
   public void fillAddContactForm(ContactData contactData, boolean creation) {
     type(By.name("firstname"), contactData.getFirstname());
     type(By.name("lastname"), contactData.getLastname());
-   // type(By.name("address"), contactData.getAddress());
+    type(By.name("address"), contactData.getAddress());
     type(By.name("email"), contactData.getEmail());
-    //type(By.name("email2"), contactData.getEmail2());
-    //type(By.name("email3"), contactData.getEmail3());
+    type(By.name("email2"), contactData.getEmail2());
+    type(By.name("email3"), contactData.getEmail3());
     type(By.name("mobile"), contactData.getMobile());
-    //type(By.name("home"),contactData.getHome());
-  //  type(By.name("work"),contactData.getWork());
-  // attach(By.name("photo"),contactData.getPhoto());
+    type(By.name("home"), contactData.getHome());
+    type(By.name("work"), contactData.getWork());
+   // attach(By.name("photo"), contactData.getPhoto());
 
     if (creation) {
       new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
@@ -57,12 +57,12 @@ public class ContactHelper extends HelperBase {
 
 
   public void initAddNewModification(int index) {
-  wd.findElements(By.cssSelector("[title='Edit']")).get(index).click();
-}
+    wd.findElements(By.cssSelector("[title='Edit']")).get(index).click();
+  }
 
   public void initAddNewModificationById(int id) {
     wd.findElement(By.cssSelector("a[href='edit.php?id=" + id + "']")).click();
-    }
+  }
 
   public void submitAddNewModification() {
     click(By.xpath("//div[@id='content']/form[1]/input[22]"));
@@ -108,10 +108,10 @@ public class ContactHelper extends HelperBase {
     return wd.findElements(By.name("selected[]")).size();
   }
 
-   private  Contacts contactCache = null;
+  private Contacts contactCache = null;
 
   public Contacts all() {
-    if (contactCache !=null) {
+    if (contactCache != null) {
       return new Contacts(contactCache);
     }
 
@@ -124,7 +124,7 @@ public class ContactHelper extends HelperBase {
       String address = element.findElements(By.tagName("td")).get(3).getText();
       String allEmails = element.findElements(By.tagName("td")).get(4).getText();
       String allPhones = element.findElements(By.tagName("td")).get(5).getText();
-     // String[] phones = allphones.split("\n");
+      // String[] phones = allphones.split("\n");
       //String[] emails = allemail.split("\n");
       contactCache.add(new ContactData().withId(id).withFirstname(firstname).withLastname(lastname)
               .withAddress(address).withAllPhones(allPhones).withAllEmails(allEmails));
@@ -145,6 +145,6 @@ public class ContactHelper extends HelperBase {
     String email3 = wd.findElement(By.name("email3")).getAttribute("value");
     wd.navigate().back();
     return new ContactData().withId(contact.getId()).withFirstname(firstname).withLastname(lastname).withAddress(address)
-           .withHome(home).withMobile(mobile).withWork(work).withEmail(email).withEmail2(email2).withEmail3(email3);
+            .withHome(home).withMobile(mobile).withWork(work).withEmail(email).withEmail2(email2).withEmail3(email3);
   }
 }
