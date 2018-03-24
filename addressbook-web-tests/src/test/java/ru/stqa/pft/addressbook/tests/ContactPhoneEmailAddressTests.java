@@ -18,7 +18,8 @@ public class ContactPhoneEmailAddressTests extends TestBase {
     if (app.contact().all().size() == 0) {
       app.contact().create(new ContactData()
               .withFirstname("TestFirstName").withLastname("TestLastName").withAddress("TestAddress").withHome("111").withMobile("222").withWork("333")
-              .withEmail("Test@mail.ru").withEmail2("Test2@mail.ru").withEmail3("Test3@mail.ru").withGroup("test1"), true);
+              .withEmail("Test@mail.ru").withEmail2("Test2@mail.ru").withEmail3("Test3@mail.ru"),true);
+              //.withGroup("test1"), true);
     }
   }
 
