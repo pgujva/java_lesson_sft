@@ -227,4 +227,9 @@ public class ContactData {
   public String getEmail3() {
     return email3;
   }
+
+  public ContactData inGroup(GroupData group) {
+    groups.add(group);
+    return this;
+  }
 }
