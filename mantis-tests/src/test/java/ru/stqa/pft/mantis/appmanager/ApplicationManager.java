@@ -19,6 +19,7 @@ public class ApplicationManager {
 
   private String browser;
   private RegistrationHelper registrationHelper;
+  private FtpHelper ftp;
 
 
   public ApplicationManager(String browser) {
@@ -34,23 +35,21 @@ public class ApplicationManager {
     properties.load(new FileReader(new File(String.format("src/test/resources/%s.properties", target))));
 
 
-
-
   }
 
 
   public void stop() {
-    if (wd !=null) {
+    if (wd != null) {
       wd.quit();
     }
   }
 
-  public  HttpSession newSession() {
+  public HttpSession newSession() {
     return new HttpSession(this);
   }
 
   public String getProperty(String key) {
-   return properties.getProperty(key);
+    return properties.getProperty(key);
   }
 
   public RegistrationHelper registration() {
@@ -60,8 +59,16 @@ public class ApplicationManager {
     return registrationHelper;
   }
 
+  public FtpHelper ftp() {
+
+    if (ftp == null) {
+      ftp = new FtpHelper(this);
+    }
+    return ftp;
+  }
+
   public WebDriver getDriver() {
-    if(wd == null) {
+    if (wd == null) {
       if (browser.equals(BrowserType.FIREFOX)) {
         wd = new FirefoxDriver(new FirefoxOptions().setLegacy(true));
       } else if (browser.equals(BrowserType.CHROME)) {
