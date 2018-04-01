@@ -150,4 +150,20 @@ public class ContactHelper extends HelperBase {
     return new ContactData().withId(contact.getId()).withFirstname(firstname).withLastname(lastname).withAddress(address)
             .withHome(home).withMobile(mobile).withWork(work).withEmail(email).withEmail2(email2).withEmail3(email3);
   }
+
+  public void add(ContactData contact) {
+    selectContact(contact.getId());
+    submitContactAddToGroup();
+    returnToHomePage();
+
+  }
+  public void submitContactAddToGroup() {
+    click(By.cssSelector("input[name='add']"));
+  }
+
+  public void selectContact (int id) {
+    wd.findElement(By.cssSelector("input[value='" + id + "']")).click();
+  }
+
+
 }

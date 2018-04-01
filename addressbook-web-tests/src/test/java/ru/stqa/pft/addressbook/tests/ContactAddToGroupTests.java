@@ -1,5 +1,6 @@
 package ru.stqa.pft.addressbook.tests;
 
+import org.hamcrest.CoreMatchers;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.ContactData;
@@ -7,11 +8,14 @@ import ru.stqa.pft.addressbook.model.Contacts;
 import ru.stqa.pft.addressbook.model.GroupData;
 import ru.stqa.pft.addressbook.model.Groups;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.IsEqual.equalTo;
+
 public class ContactAddToGroupTests extends TestBase {
 
 
   @BeforeMethod
-  void ensurePreconditions() {
+  public void ensurePreconditions() {
     if (app.db().contacts().size() == 0) {
       Groups groups = app.db().groups();
       GroupData groupData;
@@ -35,7 +39,12 @@ public class ContactAddToGroupTests extends TestBase {
   @Test
   public void TestContactAddToGroup() {
     Contacts before = app.db().contacts();
-    app.goTo();
+    ContactData contactAdd = before.iterator().next();
+    app.contact().add(contactAdd);
+    assertThat(app.contact().getContactCount(), CoreMatchers.equalTo(before.size() ));
+    Contacts after = app.db().contacts();
+    assertThat(after, equalTo(before));
+    verifyContactListInUI();
   }
 }
 
