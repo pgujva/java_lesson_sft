@@ -23,12 +23,12 @@ public class MailHelper {
 
   public List<MailMessage> waitForMail(int count, long timeout) throws MessagingException,IOException{
     long start = System.currentTimeMillis();
-    while (System.nanoTime() < start + timeout) {
+    while (System.currentTimeMillis() < start + timeout) {
       if (wiser.getMessages().size() >= count) {
         return wiser.getMessages().stream().map((m) ->toModelMail(m)).collect(Collectors.toList());
       }
       try {
-        Thread.sleep(1000);
+        Thread.sleep(10000);
       } catch (InterruptedException e) {
         e.printStackTrace();
       }
