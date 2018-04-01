@@ -23,10 +23,10 @@ public class RegistrationHelper extends HelperBase {
     type(By.name("password_confirm"),password);
     click(By.cssSelector("input[value='Update User']"));
   }
-  public void adminlogin(String username, String password) {
+  public void adminlogin() {
     wd.get(app.getProperty("web.baseUrl"));
-    type(By.name("username"), username);
-    type(By.name("password"), password);
+    type(By.name("username"), "administrator");
+    type(By.name("password"), "root");
     click(By.cssSelector("input[value='Login']"));
   }
   public void userpasschange() {
