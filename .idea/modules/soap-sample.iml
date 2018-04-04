@@ -5,7 +5,6 @@
     <content url="file://$MODULE_DIR$/../../soap-sample">
       <excludeFolder url="file://$MODULE_DIR$/../../soap-sample/.gradle" />
       <excludeFolder url="file://$MODULE_DIR$/../../soap-sample/build" />
-      <excludeFolder url="file://$MODULE_DIR$/../../soap-sample/out" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
