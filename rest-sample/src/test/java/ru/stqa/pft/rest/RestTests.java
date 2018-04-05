@@ -17,10 +17,11 @@ import java.util.Set;
 
 import static com.sun.javafx.runtime.async.BackgroundExecutor.getExecutor;
 
-public class RestTests {
+public class RestTests extends TestBase{
 
   @Test
   public void testCreateIssue() throws IOException {
+    skipIfNotFixed(1);
      Set<Issue> oldIssues = getIssues();
      Issue newIssue = new Issue().withSubject("Test issue111").withDescription("New test issue111");
      int issueId = createIssue(newIssue);
