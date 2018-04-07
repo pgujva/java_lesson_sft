@@ -167,26 +167,14 @@ public class ContactHelper extends HelperBase {
     wd.findElement(By.cssSelector("input[value='" + id + "']")).click();
   }
 
-public void delcontact (ContactData contact) {
-    viewDelContact(contact.getId());
-    goToGroupFromView();
-    selectContact(contact.getId());
-    submitRemoveFromGroup();
-    returnToHomePage();
+public void delcontact (int id) {
+   click(By.cssSelector(String.format("a[href='view.php?id=%s']", id)));
+   wd.findElement(By.xpath("//div/div[4]/i/a")).click();
+   selectContact(id);
+   click(By.xpath("//*[@id='content']/form[2]/div[3]/input"));
     contactCache = null;
 }
 
-  private void submitRemoveFromGroup() {
-    click(By.cssSelector("input[name='remove']"));
-  }
 
-  private void goToGroupFromView() {
-   // wd.findElement(By.cssSelector("a[href='./index.php?group=" + group + "']")).click();
-    wd.findElement(By.xpath("//div/div[4]/i/a")).click();
-  }
-
-  private void viewDelContact(int id) {
-    wd.findElement(By.cssSelector("a[href='view.php?id=" + id + "']")).click();
-  }
 
 }

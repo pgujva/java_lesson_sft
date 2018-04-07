@@ -38,15 +38,18 @@ public class ContactDeleteFromGroup extends TestBase {
   public void TestContactDeleteFromGroup () {
     Contacts before = app.db().contacts();
     ContactData contactDel = before.iterator().next();
-   // Groups list = app.db().groups();
-    //GroupData group = list.iterator().next();
-    if(contactDel.getGroups().size() == 0) {
-      ContactData adContact = before.iterator().next();
-      app.contact().add(adContact);
+    Groups list = contactDel.getGroups();
+    GroupData group = app.db().groups().iterator().next();
+
+    if(contactDel.getGroups().isEmpty()) {
+      app.contact().add(contactDel);
+      app.goTo().homePage();
+      list=list.withAdded(group);
     }
-    app.contact().delcontact(contactDel);
-    Contacts after = app.db().contacts();
-    assertThat(after, equalTo(before));
+    app.contact().delcontact(contactDel.getId());
+    Groups updateGroups = contactDel.getGroups();
+
+    assertThat(updateGroups, equalTo(list.without(group)));
     verifyContactListInUI();
   }
 }
