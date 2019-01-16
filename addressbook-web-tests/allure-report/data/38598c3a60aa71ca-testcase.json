@@ -1,0 +1,35 @@
+{
+  "uid" : "38598c3a60aa71ca",
+  "name" : "testBadGroupCreationTests",
+  "title" : "Test bad group creation tests",
+  "time" : {
+    "start" : 1547642840127,
+    "stop" : 1547642841878,
+    "duration" : 1751
+  },
+  "summary" : {
+    "attachments" : 0,
+    "steps" : 0
+  },
+  "failure" : null,
+  "description" : null,
+  "severity" : "NORMAL",
+  "status" : "PASSED",
+  "testId" : null,
+  "suite" : {
+    "uid" : "efaeae5a9925eed",
+    "name" : "Suite1",
+    "title" : "Suite 1"
+  },
+  "steps" : [ ],
+  "attachments" : [ ],
+  "issues" : [ ],
+  "labels" : [ {
+    "name" : "suite-name",
+    "value" : "Suite1"
+  }, {
+    "name" : "suite-title",
+    "value" : null
+  } ],
+  "parameters" : [ ]
+}

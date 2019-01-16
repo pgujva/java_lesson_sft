@@ -1,0 +1,35 @@
+{
+  "uid" : "6ddade85fbb18790",
+  "name" : "TestContactAddToGroup",
+  "title" : "Test contact add to group",
+  "time" : {
+    "start" : 1547642713697,
+    "stop" : 1547642714571,
+    "duration" : 874
+  },
+  "summary" : {
+    "attachments" : 0,
+    "steps" : 0
+  },
+  "failure" : null,
+  "description" : null,
+  "severity" : "NORMAL",
+  "status" : "PASSED",
+  "testId" : null,
+  "suite" : {
+    "uid" : "b7d7438efefd63",
+    "name" : "Default Suite",
+    "title" : "Default suite"
+  },
+  "steps" : [ ],
+  "attachments" : [ ],
+  "issues" : [ ],
+  "labels" : [ {
+    "name" : "suite-name",
+    "value" : "Default Suite"
+  }, {
+    "name" : "suite-title",
+    "value" : null
+  } ],
+  "parameters" : [ ]
+}

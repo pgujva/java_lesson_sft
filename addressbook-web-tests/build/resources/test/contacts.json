@@ -3,18 +3,27 @@
     "firstname": "TestLastName 0",
     "lastname": "TestFirstName 0",
     "address": "TestAddress 0",
-    "group": "test 0"
+    "group": "test 0",
+    "mobile": "89044433701",
+    "work": "89044433711",
+    "email": "111@mail.ru"
   },
   {
     "firstname": "TestLastName 1",
     "lastname": "TestFirstName 1",
     "address": "TestAddress 1",
-    "group": "test 1"
+    "group": "test 1",
+    "mobile": "89044433702",
+    "work": "89044433722",
+    "email": "222@mail.ru"
   },
   {
     "firstname": "TestLastName 2",
     "lastname": "TestFirstName 2",
     "address": "TestAddress 2",
-    "group": "test 2"
+    "group": "test 2",
+    "mobile": "89044433703",
+    "work": "89044433733",
+    "email": "333@mail.ru"
   }
 ]
