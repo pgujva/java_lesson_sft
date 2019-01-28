@@ -1,6 +1,6 @@
 {
   "testCases" : [ {
-    "uid" : "a045be09f6f2ced1",
+    "uid" : "5f4368bdcde47240",
     "name" : "testBadGroupCreationTests",
     "title" : "Test bad group creation tests",
     "time" : {
@@ -11,7 +11,7 @@
     "severity" : "NORMAL",
     "status" : "PASSED"
   }, {
-    "uid" : "1f57a25d943e1461",
+    "uid" : "6059adff0d2e7be8",
     "name" : "testGroupCreationTests[GroupData{id='2147483647', name='test 0'}]",
     "title" : "Test group creation tests [GroupData{id='2147483647', name='test 0'}]",
     "time" : {
@@ -22,7 +22,7 @@
     "severity" : "NORMAL",
     "status" : "PASSED"
   }, {
-    "uid" : "a484fdb76aa5a477",
+    "uid" : "84854678d1128b4a",
     "name" : "testGroupCreationTests[GroupData{id='2147483647', name='test 1'}]",
     "title" : "Test group creation tests [GroupData{id='2147483647', name='test 1'}]",
     "time" : {
@@ -33,7 +33,7 @@
     "severity" : "NORMAL",
     "status" : "PASSED"
   }, {
-    "uid" : "66d2713679b625c5",
+    "uid" : "f3c2a54e55dde97b",
     "name" : "testGroupCreationTests[GroupData{id='2147483647', name='test 2'}]",
     "title" : "Test group creation tests [GroupData{id='2147483647', name='test 2'}]",
     "time" : {
@@ -44,7 +44,7 @@
     "severity" : "NORMAL",
     "status" : "PASSED"
   }, {
-    "uid" : "3d6b58766a6d67ba",
+    "uid" : "ac6efb40a2512d91",
     "name" : "testGroupDeletion",
     "title" : "Test group deletion",
     "time" : {
@@ -55,7 +55,7 @@
     "severity" : "NORMAL",
     "status" : "FAILED"
   }, {
-    "uid" : "b431189d6c13d023",
+    "uid" : "2a653261a0a09c44",
     "name" : "testGroupModification",
     "title" : "Test group modification",
     "time" : {

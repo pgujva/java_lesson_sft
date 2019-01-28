@@ -1,0 +1,35 @@
+{
+  "uid" : "2a653261a0a09c44",
+  "name" : "testGroupModification",
+  "title" : "Test group modification",
+  "time" : {
+    "start" : 1547643806352,
+    "stop" : 1547643807900,
+    "duration" : 1548
+  },
+  "summary" : {
+    "attachments" : 0,
+    "steps" : 0
+  },
+  "failure" : null,
+  "description" : null,
+  "severity" : "NORMAL",
+  "status" : "PASSED",
+  "testId" : null,
+  "suite" : {
+    "uid" : "1ac14aafba1ee7db",
+    "name" : "Suite1",
+    "title" : "Suite 1"
+  },
+  "steps" : [ ],
+  "attachments" : [ ],
+  "issues" : [ ],
+  "labels" : [ {
+    "name" : "suite-name",
+    "value" : "Suite1"
+  }, {
+    "name" : "suite-title",
+    "value" : null
+  } ],
+  "parameters" : [ ]
+}
